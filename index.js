@@ -1,11 +1,5 @@
 const carouselImages = () => {
-  const images = [
-    "assets/img/aj-sakura-unsplash.jpg",
-    "assets/img/alex-knight-japan-street-unsplash.jpg",
-    "assets/img/ernest-widi-vending-machine-unsplash.jpg",
-    "assets/img/romeo-a-train-station-unsplash.jpg",
-    "assets/img/sora-sagano-fish-unsplash.jpg",
-  ];
+  const images = document.querySelectorAll(".carousel-image");
 
   const getImages = () => {
     return images;
@@ -42,23 +36,57 @@ const slidesController = () => {
 
 const displayController = () => {
   const carouselSlide = document.querySelector(".carousel-slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
   const images = carouselImages();
   const slides = slidesController();
 
-  const createImage = () => {
-    const image = document.createElement("img");
-    image.classList.add("carousel-image");
-    return image;
+  const handlePreviousImage = () => {
+    const fromSlideIndex = slides.getCurrentSlide();
+    console.log(fromSlideIndex);
+    slides.previousSlide();
+    const toSlideIndex = slides.getCurrentSlide();
+    console.log(toSlideIndex);
+
+    updateSlideImage(fromSlideIndex, toSlideIndex);
   };
 
-  const renderImage = () => {
-    const imageSlide = createImage();
-    const currentSlide = slides.getCurrentSlide();
-    imageSlide.src = images.getImageByIndex(currentSlide);
-    carouselSlide.appendChild(imageSlide);
+  const handleNextImage = () => {
+    const fromSlideIndex = slides.getCurrentSlide();
+    console.log(fromSlideIndex);
+    slides.nextSlide();
+    const toSlideIndex = slides.getCurrentSlide();
+    console.log(toSlideIndex);
+
+    updateSlideImage(fromSlideIndex, toSlideIndex);
   };
 
-  renderImage();
+  const updateSlideImage = (fromSlideIndex, toSlideIndex) => {
+    const fromImage = images.getImageByIndex(fromSlideIndex);
+    const toImage = images.getImageByIndex(toSlideIndex);
+
+    if (fromImage && toImage) {
+      renderSlideImage(fromImage, toImage);
+    } else {
+      initialSlideImage();
+    }
+  };
+
+  const renderSlideImage = (fromImage, toImage) => {
+    fromImage.classList.remove("visible");
+    toImage.classList.toggle("visible");
+  };
+
+  const initialSlideImage = () => {
+    const currentSlideIndex = slides.getCurrentSlide();
+    const carouselImage = images.getImageByIndex(currentSlideIndex);
+    carouselImage.classList.add("visible");
+  };
+
+  prevBtn.addEventListener("click", handlePreviousImage);
+  nextBtn.addEventListener("click", handleNextImage);
+
+  initialSlideImage();
 };
 
 displayController();

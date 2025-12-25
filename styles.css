@@ -4,7 +4,17 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
 .carousel-image {
   width: 500px;
   height: 500px;
+  display: none;
+  object-fit: cover;
+}
+
+.carousel-image.visible {
+  display: block;
 }
