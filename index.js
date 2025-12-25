@@ -6,29 +6,38 @@ const carouselImages = () => {
   };
 
   const getImageByIndex = (index) => {
-    return images[index];
+    if (index < 0 || index > images.length) {
+      return;
+    } else {
+      return images[index];
+    }
   };
 
   const getLength = () => {
-    return images.length;
+    return images.length - 1;
   };
 
   return { getImages, getLength, getImageByIndex };
 };
 
 const slidesController = () => {
-  let currentSlide = 0;
+  let currentSlide = 4;
+  const maxLength = carouselImages().getLength();
 
   const getCurrentSlide = () => {
     return currentSlide;
   };
 
   const nextSlide = () => {
-    currentSlide += 1;
+    if (currentSlide < maxLength) {
+      currentSlide += 1;
+    }
   };
 
   const previousSlide = () => {
-    currentSlide -= 1;
+    if (currentSlide > 0) {
+      currentSlide -= 1;
+    }
   };
 
   return { getCurrentSlide, nextSlide, previousSlide };
@@ -74,12 +83,15 @@ const displayController = () => {
 
   const renderSlideImage = (fromImage, toImage) => {
     fromImage.classList.remove("visible");
-    toImage.classList.toggle("visible");
+    toImage.classList.add("visible");
   };
 
   const initialSlideImage = () => {
     const currentSlideIndex = slides.getCurrentSlide();
     const carouselImage = images.getImageByIndex(currentSlideIndex);
+
+    if (!carouselImage) return;
+
     carouselImage.classList.add("visible");
   };
 
