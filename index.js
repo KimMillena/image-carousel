@@ -51,6 +51,11 @@ const displayController = () => {
   const images = carouselImages();
   const slides = slidesController();
 
+  const initCarousel = () => {
+    initialSlideImage();
+    createNavCircle();
+  };
+
   const handlePreviousImage = () => {
     const fromSlideIndex = slides.getCurrentSlide();
     console.log(fromSlideIndex);
@@ -120,7 +125,7 @@ const displayController = () => {
   prevBtn.addEventListener("click", handlePreviousImage);
   nextBtn.addEventListener("click", handleNextImage);
 
-  initialSlideImage();
+  initCarousel();
 };
 
 displayController();
