@@ -28,6 +28,12 @@ const slidesController = () => {
     return currentSlide;
   };
 
+  const setCurrentSlide = (index) => {
+    if (index >= 0 && index <= maxLength) {
+      currentSlide = index;
+    }
+  };
+
   const nextSlide = () => {
     if (currentSlide < maxLength) {
       currentSlide += 1;
@@ -40,7 +46,7 @@ const slidesController = () => {
     }
   };
 
-  return { getCurrentSlide, nextSlide, previousSlide };
+  return { getCurrentSlide, setCurrentSlide, nextSlide, previousSlide };
 };
 
 const displayController = () => {
@@ -101,6 +107,16 @@ const displayController = () => {
     carouselImage.classList.add("visible");
   };
 
+  const toSlide = (toIndex) => {
+    const fromSlideIndex = slides.getCurrentSlide();
+    const toSlideIndex = toIndex;
+
+    console.log(fromSlideIndex, toSlideIndex);
+
+    updateSlideImage(fromSlideIndex, toSlideIndex);
+    slides.setCurrentSlide(toSlideIndex);
+  };
+
   const createNavCircleContainer = () => {
     const navCircleContainer = document.createElement("ul");
     navCircleContainer.classList.add("nav-circle-container");
@@ -108,9 +124,13 @@ const displayController = () => {
     return navCircleContainer;
   };
 
-  const createNavCircleBtn = () => {
+  const createNavCircleBtn = (toIndex) => {
     const navCircleBtn = document.createElement("button");
     navCircleBtn.classList.add("nav-circle-btn");
+
+    navCircleBtn.addEventListener("click", () => {
+      toSlide(toIndex);
+    });
 
     return navCircleBtn;
   };
@@ -122,9 +142,9 @@ const displayController = () => {
 
     for (let i = 0; i <= imageLength; i++) {
       const navCircle = document.createElement("li");
-      const navCircleBtn = createNavCircleBtn();
       navCircle.classList.add("nav-circle");
-      navCircle.appendChild(navCircleBtn);
+
+      navCircle.appendChild(createNavCircleBtn(i));
       navCircleContainer.appendChild(navCircle);
     }
 
