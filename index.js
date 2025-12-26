@@ -108,6 +108,13 @@ const displayController = () => {
     return navCircleContainer;
   };
 
+  const createNavCircleBtn = () => {
+    const navCircleBtn = document.createElement("button");
+    navCircleBtn.classList.add("nav-circle-btn");
+
+    return navCircleBtn;
+  };
+
   const createNavCircle = () => {
     const navCircleContainer = createNavCircleContainer();
     const imageLength = images.getLength();
@@ -115,7 +122,9 @@ const displayController = () => {
 
     for (let i = 0; i <= imageLength; i++) {
       const navCircle = document.createElement("li");
+      const navCircleBtn = createNavCircleBtn();
       navCircle.classList.add("nav-circle");
+      navCircle.appendChild(navCircleBtn);
       navCircleContainer.appendChild(navCircle);
     }
 
