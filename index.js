@@ -61,9 +61,25 @@ const displayController = () => {
   const images = carouselImages();
   const slides = slidesController();
 
+  let autoPlayInterval = null;
+
   const initCarousel = () => {
     initialSlideImage();
     createNavCircle();
+    startAutoPlay();
+  };
+
+  const startAutoPlay = () => {
+    autoPlayInterval = setInterval(() => {
+      handleNextImage();
+    }, 5000);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
   };
 
   const handlePreviousImage = () => {
@@ -134,6 +150,8 @@ const displayController = () => {
 
     navCircleBtn.addEventListener("click", () => {
       toSlide(toIndex);
+      stopAutoPlay();
+      startAutoPlay();
     });
 
     return navCircleBtn;
@@ -155,8 +173,16 @@ const displayController = () => {
     carouselContainer.appendChild(navCircleContainer);
   };
 
-  prevBtn.addEventListener("click", handlePreviousImage);
-  nextBtn.addEventListener("click", handleNextImage);
+  prevBtn.addEventListener("click", () => {
+    handlePreviousImage();
+    stopAutoPlay();
+    startAutoPlay();
+  });
+  nextBtn.addEventListener("click", () => {
+    handleNextImage();
+    stopAutoPlay();
+    startAutoPlay();
+  });
 
   initCarousel();
 };
