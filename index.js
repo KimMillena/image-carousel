@@ -44,6 +44,7 @@ const slidesController = () => {
 };
 
 const displayController = () => {
+  const carouselContainer = document.querySelector(".carousel-container");
   const carouselSlide = document.querySelector(".carousel-slide");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
@@ -93,6 +94,27 @@ const displayController = () => {
     if (!carouselImage) return;
 
     carouselImage.classList.add("visible");
+  };
+
+  const createNavCircleContainer = () => {
+    const navCircleContainer = document.createElement("ul");
+    navCircleContainer.classList.add("nav-circle-container");
+
+    return navCircleContainer;
+  };
+
+  const createNavCircle = () => {
+    const navCircleContainer = createNavCircleContainer();
+    const imageLength = images.getLength();
+    console.log(imageLength);
+
+    for (let i = 0; i <= imageLength; i++) {
+      const navCircle = document.createElement("li");
+      navCircle.classList.add("nav-circle");
+      navCircleContainer.appendChild(navCircle);
+    }
+
+    carouselContainer.appendChild(navCircleContainer);
   };
 
   prevBtn.addEventListener("click", handlePreviousImage);
