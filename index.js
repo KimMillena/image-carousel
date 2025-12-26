@@ -21,7 +21,7 @@ const carouselImages = () => {
 };
 
 const slidesController = () => {
-  let currentSlide = 4;
+  let currentSlide = 0;
   const maxLength = carouselImages().getLength();
 
   const getCurrentSlide = () => {
