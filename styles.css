@@ -30,8 +30,21 @@ body {
   position: absolute;
   top: 50%;
   z-index: 1;
+  background: none;
   border: none;
   cursor: pointer;
+}
+
+.prev-btn-icon,
+.next-btn-icon {
+  fill: var(--white-color);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.prev-btn-icon:hover,
+.next-btn-icon:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .prev-btn {
