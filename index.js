@@ -6,7 +6,7 @@ const carouselImages = () => {
   };
 
   const getImageByIndex = (index) => {
-    if (index < 0 || index > images.length) {
+    if (index < 0 || index >= images.length) {
       return;
     } else {
       return images[index];
@@ -35,13 +35,17 @@ const slidesController = () => {
   };
 
   const nextSlide = () => {
-    if (currentSlide < maxLength) {
+    if (currentSlide >= maxLength) {
+      currentSlide = 0;
+    } else {
       currentSlide += 1;
     }
   };
 
   const previousSlide = () => {
-    if (currentSlide > 0) {
+    if (currentSlide <= 0) {
+      currentSlide = maxLength;
+    } else {
       currentSlide -= 1;
     }
   };
