@@ -26,6 +26,7 @@ body {
   top: 50%;
   z-index: 1;
   border: none;
+  cursor: pointer;
 }
 
 .prev-btn {
@@ -45,4 +46,27 @@ body {
 
 .carousel-image.visible {
   display: block;
+}
+
+.nav-circle-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.nav-circle {
+  list-style-type: none;
+}
+
+.nav-circle-btn {
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
 }
