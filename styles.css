@@ -90,6 +90,10 @@ body {
   cursor: pointer;
 }
 
+.nav-circle-btn.active {
+  background-color: var(--white-color);
+}
+
 .nav-circle-btn:hover {
   background-color: var(--white-color);
 }

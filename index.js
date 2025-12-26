@@ -66,6 +66,7 @@ const displayController = () => {
   const initCarousel = () => {
     initialSlideImage();
     createNavCircle();
+    updateActiveCircle();
     startAutoPlay();
   };
 
@@ -90,6 +91,7 @@ const displayController = () => {
     console.log(toSlideIndex);
 
     updateSlideImage(fromSlideIndex, toSlideIndex);
+    updateActiveCircle();
   };
 
   const handleNextImage = () => {
@@ -100,6 +102,7 @@ const displayController = () => {
     console.log(toSlideIndex);
 
     updateSlideImage(fromSlideIndex, toSlideIndex);
+    updateActiveCircle();
   };
 
   const updateSlideImage = (fromSlideIndex, toSlideIndex) => {
@@ -125,6 +128,18 @@ const displayController = () => {
     if (!carouselImage) return;
 
     carouselImage.classList.add("visible");
+    updateActiveCircle();
+  };
+
+  const updateActiveCircle = () => {
+    const allCircles = document.querySelectorAll(".nav-circle-btn");
+    const currentIndex = slides.getCurrentSlide();
+
+    allCircles.forEach((circle) => circle.classList.remove("active"));
+
+    if (allCircles[currentIndex]) {
+      allCircles[currentIndex].classList.add("active");
+    }
   };
 
   const toSlide = (toIndex) => {
@@ -135,6 +150,7 @@ const displayController = () => {
 
     updateSlideImage(fromSlideIndex, toSlideIndex);
     slides.setCurrentSlide(toSlideIndex);
+    updateActiveCircle();
   };
 
   const createNavCircleContainer = () => {
