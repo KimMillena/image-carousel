@@ -18,7 +18,12 @@ A simple, clean, and interactive image carousel made as an assignment for The Od
 
 ## Resources
 
-Sakura Image Link: (https://unsplash.com/photos/pink-flowers-McsNra2VRQQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
-Fish Image: (https://unsplash.com/photos/photo-of-two-black-white-and-orange-koi-fish-Dksk8szLRN0?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
-Japan Vending Machine Image: (https://unsplash.com/photos/a-vending-machine-sitting-on-top-of-a-roof-av6ZiObwjwY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
-Japan Train Station Image: (https://unsplash.com/photos/white-and-blue-train-on-rail-tracks-during-daytime-xdSyIdZsviE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
+- [Sakura Image Link](https://unsplash.com/photos/pink-flowers-McsNra2VRQQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
+
+- [Fish Image](https://unsplash.com/photos/photo-of-two-black-white-and-orange-koi-fish-Dksk8szLRN0?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
+
+- [Japan Street Image](https://unsplash.com/photos/empty-pathway-in-between-stores-wfwUpfVqrKU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
+
+- [Japan Vending Machine Image](https://unsplash.com/photos/a-vending-machine-sitting-on-top-of-a-roof-av6ZiObwjwY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
+
+- [Japan Train Station Image](https://unsplash.com/photos/white-and-blue-train-on-rail-tracks-during-daytime-xdSyIdZsviE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
