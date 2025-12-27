@@ -55,9 +55,9 @@ const slidesController = () => {
 
 const displayController = () => {
   const carouselContainer = document.querySelector(".carousel-container");
-  const carouselSlide = document.querySelector(".carousel-slide");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
+
   const images = carouselImages();
   const slides = slidesController();
 
@@ -85,10 +85,9 @@ const displayController = () => {
 
   const handlePreviousImage = () => {
     const fromSlideIndex = slides.getCurrentSlide();
-    console.log(fromSlideIndex);
+
     slides.previousSlide();
     const toSlideIndex = slides.getCurrentSlide();
-    console.log(toSlideIndex);
 
     updateSlideImage(fromSlideIndex, toSlideIndex);
     updateActiveCircle();
@@ -96,10 +95,9 @@ const displayController = () => {
 
   const handleNextImage = () => {
     const fromSlideIndex = slides.getCurrentSlide();
-    console.log(fromSlideIndex);
+
     slides.nextSlide();
     const toSlideIndex = slides.getCurrentSlide();
-    console.log(toSlideIndex);
 
     updateSlideImage(fromSlideIndex, toSlideIndex);
     updateActiveCircle();
@@ -146,8 +144,6 @@ const displayController = () => {
     const fromSlideIndex = slides.getCurrentSlide();
     const toSlideIndex = toIndex;
 
-    console.log(fromSlideIndex, toSlideIndex);
-
     updateSlideImage(fromSlideIndex, toSlideIndex);
     slides.setCurrentSlide(toSlideIndex);
     updateActiveCircle();
@@ -176,7 +172,6 @@ const displayController = () => {
   const createNavCircle = () => {
     const navCircleContainer = createNavCircleContainer();
     const imageLength = images.getLength();
-    console.log(imageLength);
 
     for (let i = 0; i <= imageLength; i++) {
       const navCircle = document.createElement("li");
@@ -194,6 +189,7 @@ const displayController = () => {
     stopAutoPlay();
     startAutoPlay();
   });
+
   nextBtn.addEventListener("click", () => {
     handleNextImage();
     stopAutoPlay();
