@@ -67,10 +67,10 @@ const displayController = () => {
     initialSlideImage();
     createNavCircle();
     updateActiveCircle();
-    startAutoPlay();
+    startSlideshow();
   };
 
-  const startAutoPlay = () => {
+  const startSlideshow = () => {
     autoPlayInterval = setInterval(() => {
       handleNextImage();
     }, 5000);
@@ -163,7 +163,7 @@ const displayController = () => {
     navCircleBtn.addEventListener("click", () => {
       toSlide(toIndex);
       stopAutoPlay();
-      startAutoPlay();
+      startSlideshow();
     });
 
     return navCircleBtn;
@@ -187,13 +187,13 @@ const displayController = () => {
   prevBtn.addEventListener("click", () => {
     handlePreviousImage();
     stopAutoPlay();
-    startAutoPlay();
+    startSlideshow();
   });
 
   nextBtn.addEventListener("click", () => {
     handleNextImage();
     stopAutoPlay();
-    startAutoPlay();
+    startSlideshow();
   });
 
   initCarousel();
