@@ -31,6 +31,8 @@ body {
   position: relative;
 }
 
+/* NEXT AND PREVIOUS BUTTON STYLINGS */
+
 .prev-btn,
 .next-btn {
   position: absolute;
@@ -61,6 +63,8 @@ body {
   right: 10px;
 }
 
+/* CAROUSEL IMAGE STYLINGS */
+
 .carousel-image {
   width: clamp(350px, 60vw, 900px);
   height: clamp(350px, 60vh, 700px);
@@ -71,6 +75,8 @@ body {
 .carousel-image.visible {
   display: block;
 }
+
+/* NAV CIRCLES STYLINGS */
 
 .nav-circle-container {
   position: absolute;
@@ -90,16 +96,13 @@ body {
 
 .nav-circle-btn {
   background: none;
-  border: 3px solid var(--nav-circle-color);
+  border: 2px solid var(--nav-circle-color);
   border-radius: 50%;
-  padding: 0.4rem;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
-.nav-circle-btn.active {
-  background-color: var(--white-color);
-}
-
+.nav-circle-btn.active,
 .nav-circle-btn:hover {
   background-color: var(--white-color);
 }
